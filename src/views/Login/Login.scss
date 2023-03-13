@@ -1,0 +1,19 @@
+.Login{
+    width: 100vw;
+    height: 50vw;
+    background-color: #369;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+   
+    .content{
+        width: 500px;
+        height: 200px;
+        border: 1px solid #fff;
+        padding-top: 10px;
+        h2{
+            text-align: center;
+        }
+    }
+}
