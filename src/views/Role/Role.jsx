@@ -5,6 +5,8 @@ import AddRole from './AddRole'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import MyNotification from '../../components/MyNotification/MyNotification'
 export default function Role() {
+  let rolename='';
+  let [roleId,setRoleId]=useState(0)
   let [notiMsg, setNotiMsg] = useState({ type: '', description: '' })
   //是否打卡抽屉
   const [open, setOpen] = useState(false)
@@ -35,6 +37,12 @@ export default function Role() {
       setRoleList(roleList.filter((r) => r.roleId !== roleId))
     }
   }
+  //修改
+  const edit = (id,name) => {
+    rolename=name
+    setOpen(true)
+    setRoleId(id)
+  }
   const columns = [
     {
       title: '角色编号',
@@ -60,7 +68,7 @@ export default function Role() {
             <DeleteOutlined />
           </Popconfirm>
           
-          <EditOutlined />
+          <EditOutlined onClick={()=>{edit(ret.roleId,ret.roleName)}}/>
         </Space>
       ),
     },
@@ -71,7 +79,7 @@ export default function Role() {
         <Button size='small' onClick={() => { setOpen(true) }}>添加</Button>
       </div>
       <Table size='small' dataSource={roleList} columns={columns} />;
-      <AddRole open={open} setOpen={setOpen} roleList={roleList} setRoleList={setRoleList} />
+      <AddRole open={open} setOpen={setOpen} roleList={roleList} setRoleList={setRoleList} roleId={roleId} setRoleId={setRoleId} roleName={rolename}/>
       <MyNotification notiMsg={notiMsg} />
     </>
   )

@@ -21,8 +21,8 @@ export const IDelete=async (id)=>{
 }
 //修改角色
 
-export const IUpdate=async (data)=>{
-    let {data}=await axios.post(`cANKVGi3bb328ab1936cabffca832459d2391c3615831c8?uri=RoleData/`,{data})
+export const IUpdate=async (params)=>{
+    let {data}=await axios.post(`cANKVGi3bb328ab1936cabffca832459d2391c3615831c8?uri=RoleData/`,{params})
     return data;
 }
 //角色详情

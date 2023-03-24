@@ -1,1 +1,2 @@
-export  const baseURL='api1/';
+
+export const baseURL = window.location.origin + '/api1/';

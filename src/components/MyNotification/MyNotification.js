@@ -8,7 +8,8 @@ export default function MyNotification({notiMsg}) {
         if(notiMsg.type){
             api[notiMsg.type]({
                 message:'系统提示',
-                description:notiMsg.description
+                description:notiMsg.description,
+                duration:1.5
             })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

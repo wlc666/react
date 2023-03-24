@@ -1,14 +1,21 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import "./Login.scss"
 import { Button, Form, Input } from "antd"
 import MyNotification from '../../components/MyNotification/MyNotification'
 import {loginapi} from '../../api/adminApi'
 import { useNavigate } from 'react-router-dom'
 
-
 export default function Login() {
     //导航
-    let navigate=useNavigate()
+    let navigate=useNavigate();
+    //判断是否已登录
+    useEffect(()=>{
+        if(sessionStorage.getItem('token')){
+            navigate('/layout')
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+    
     //通知框状态
     let [notiMsg,setNotiMsg]=useState({type:'',description:''})
     // //提示框

@@ -1,6 +1,11 @@
-const {createProxyMiddleware} = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 module.exports = function (app) {
+    // app.use(function (req, res, next) {
+    //     // res.header("Access-Control-Allow-Origin", "*");
+    //     console.log(req.url)
+    //     next()
+    // })
     app.use(
         createProxyMiddleware('/api1', {  // 遇见/api1前缀的请求会触发该代理配置
             target: 'https://result.eolink.com/',  // 请求转发给谁
